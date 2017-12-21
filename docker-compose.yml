@@ -1,0 +1,52 @@
+version: "2.3"
+
+services:
+  core01:
+    container_name: core01
+    image: bitcoin-core:0.1
+    hostname: core01
+    ports:
+      - 18345:18345
+      - 7786:7786
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./docker-entrypoint.sh:/entrypoint.sh:ro
+      - ./conf/core01/bitcoin.conf:/root/.bitcoin/bitcoin.conf
+      - ./log/core01:/var/log/bitcoin
+      - ./data/core01/main:/root/.bitcoin/main
+      - ./data/core01/regtest:/root/.bitcoin/regtest
+    networks:
+      back:
+        ipv4_address: 172.18.250.11
+    restart: always
+  
+  core02:
+    container_name: core02
+    image: bitcoin-core:0.1
+    hostname: core02
+    ports:
+      - 28345:18345
+      - 27786:7786
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./docker-entrypoint.sh:/entrypoint.sh:ro
+      - ./conf/core02/bitcoin.conf:/root/.bitcoin/bitcoin.conf
+      - ./log/core02:/var/log/bitcoin
+      - ./data/core02/main:/root/.bitcoin/main
+      - ./data/core02/regtest:/root/.bitcoin/regtest
+    networks:
+      back:
+        ipv4_address: 172.18.250.12  
+    restart: always
+
+networks:
+  back:
+    driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: "false"
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.18.250.0/24
+        gateway: 172.18.250.1
+    
