@@ -26,4 +26,6 @@ RUN git clone https://github.com/bitcoin/bitcoin.git \
 
 ADD ./docker-entrypoint.sh /entrypoint.sh 
 
+EXPOSE 7786 18345
+
 ENTRYPOINT ["/entrypoint.sh"]

@@ -2,6 +2,7 @@ regtest=1
 rpcuser=bitcoinrpc
 rpcpassword=bitcoinrpc
 rpcport=18345
+rpcallowip=1.2.3.4/0.0.0.0
 port=7786
 txindex=1
 addnode=
