@@ -35,6 +35,7 @@ IF you use macOS to Setup, You must install `gnu-sed`.
 # Stop service and Remove all containers
 + Execute `docker-compose down`
 
+# Port mapping
 | Docker-compose Service | Service | Host port  | Container port |
 | :-------------: |:-------------| -----:|------------:|
 | core01 | CORE| 7786  |7786 |
