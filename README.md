@@ -5,6 +5,12 @@
 + Docker-compose version 1.13.0
 + Git
 
+# macOS
+IF you use macOS to Setup, You must install `gnu-sed`.
++ Homebrew 
++ gnu-sed
+ `brew install gnu-sed --with-default-names`
+
 # Install
 1. Setup environment `./setup.sh`
 2. Build docker image `./build.sh`
@@ -28,6 +34,14 @@
 
 # Stop service and Remove all containers
 + Execute `docker-compose down`
+
+| Docker-compose Service | Service | Host port  | Container port |
+| :-------------: |:-------------| -----:|------------:|
+| core01 | CORE| 7786  |7786 |
+| core01 | RPC | 18345 |18345|
+| core02 | CORE| 27786  |7786 |
+| core02 | RPC | 28345 |18345|
+
 
 
 
